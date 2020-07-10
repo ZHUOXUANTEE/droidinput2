@@ -67,9 +67,6 @@ public class OrderActivity extends AppCompatActivity implements
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
     }
-//xuan
-
-
 
     public void onRadioButtonClicked(View view) {
         Boolean checked = ((RadioButton)view).isChecked();
