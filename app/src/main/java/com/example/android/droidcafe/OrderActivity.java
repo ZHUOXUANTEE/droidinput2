@@ -27,9 +27,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView;
 
-import java.lang.reflect.Array;
 
 /**
  * This activity shows the order chosen.  The order is sent as data
@@ -123,7 +121,42 @@ public class OrderActivity extends AppCompatActivity implements
         displayToast(message);
 
     }
-    public void   initializeUI()
+
+
+    public void showDatePicker(View view)
+    {
+                DatePickerFragment newFragment = new DatePickerFragment();
+                newFragment.show(getFragmentManager(),"datePicker");
+    }
+
+    public void processDatePickerResult(int year, int month, int day) {
+        String year_string = Integer.toString(year);
+        String month_string =Integer.toString(month+1);
+        String day_string =Integer.toString(day);
+        String dateMessage = ( day_string+
+                "/" + month_string + "/" + year_string);
+
+        displayToast(dateMessage);
+    }
+
+    public void showTimePicker(View view)
+    {
+        TimePickerFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(),"timePicker");
+    }
+
+    public void processTimePickerResult(int hourOfDay, int minute) {
+        String hourOfDay_string = Integer.toString(hourOfDay);
+        String minute_string =Integer.toString(minute);
+        String timeMessage = (hourOfDay_string + ":" + minute_string);
+
+        displayToast(timeMessage);
+    }
+
+
+
+
+    public void initializeUI()
     {
         chocolateSyrup = findViewById(R.id.chocolateSyrup);
         sprinkles = findViewById(R.id.sprinkles);
